@@ -21,6 +21,12 @@ area that are not web content.
 
 ## Install
 
+Install it from the [Mods Registry](https://www.zen-browser.app/mods): open Zen,
+click the mod, and click "Install".
+
+The registry is currently archived and not accepting new mods, so until this one
+is listed there you can install it from this repository instead:
+
 ```bash
 git clone https://github.com/EmanuelMendoza20/not-shadow-content.git
 cd not-shadow-content
