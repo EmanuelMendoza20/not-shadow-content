@@ -1,77 +1,54 @@
 # Not Shadow Content
 
-![Preview](image.png)
+A Zen Browser mod that removes the drop shadow from the web content panel, leaving the rounded corners intact.
 
-Removes the drop shadow that [Zen Browser](https://zen-browser.app) casts on the
-web content panel, leaving the rounded corners intact.
+![Not Shadow Content Preview](image.png)
 
-## What it changes
+## Installation
 
-Zen renders the active page inside a rounded container that carries a
-`box-shadow`, which separates the page from the window chrome. This mod clears
-that shadow on the web content only.
+### Via Zen Browser Mods (Recommended)
 
-The rest of the window keeps its shadows: the bookmarks sidebar, the toolbar and
-its panels, and the download animations all live outside the content area.
+Visit the [Mods Registry](https://www.zen-browser.app/mods), search for "Not Shadow Content", and click `Install`.
 
-Zen defines a single `--zen-big-shadow` variable at `:root` and the content
-containers read it when painting their own shadow. This mod sets it to `none` on
-the content root and restores the original value for the surfaces inside that
-area that are not web content.
+This mod is not in the registry yet. The registry is currently archived and is not accepting new mods, so for now use the manual method below.
 
-## Install
+### Manual Installation
 
-Install it from the [Mods Registry](https://www.zen-browser.app/mods): open Zen,
-click the mod, and click "Install".
+1. Copy `chrome.css` to:
+   `<profile>/chrome/zen-themes/not-shadow-content/chrome.css`
+2. Add the mod to `<profile>/zen-themes.json`:
+   ```json
+   "not-shadow-content": {
+     "id": "not-shadow-content",
+     "name": "Not Shadow Content",
+     "description": "Removes the drop shadow from the web content panel.",
+     "homepage": "https://github.com/EmanuelMendoza20/not-shadow-content",
+     "style": "https://raw.githubusercontent.com/EmanuelMendoza20/not-shadow-content/main/chrome.css",
+     "readme": "https://raw.githubusercontent.com/EmanuelMendoza20/not-shadow-content/main/README.md",
+     "author": "EmanuelMendoza20",
+     "version": "1.0.0",
+     "tags": [],
+     "enabled": true
+   }
+   ```
+3. Restart Zen Browser
 
-The registry is currently archived and not accepting new mods, so until this one
-is listed there you can install it from this repository instead:
+Your profile folder is shown in Zen under `about:support` → Profile Folder.
 
-```bash
-git clone https://github.com/EmanuelMendoza20/not-shadow-content.git
-cd not-shadow-content
-./install.sh
-```
+## How it works
 
-The script locates your profile automatically, copies `chrome.css` into
-`<profile>/chrome/zen-themes/not-shadow-content/`, and registers the mod in
-`zen-themes.json`, keeping a backup of the original as `zen-themes.json.bak`.
-Running it again just updates the files, so it is safe to re-run after pulling
-changes.
+Zen defines a single `--zen-big-shadow` variable at `:root`, and the content containers read it when painting their own shadow.
 
-If you have more than one profile, point it at the one you want:
-
-```bash
-ZEN_PROFILE="~/Library/Application Support/zen/Profiles/<profile>.Default (release)" ./install.sh
-```
-
-Restart Zen, or toggle the mod off and on in Settings → Mods.
-
-### Manual install
-
-If you would rather not run a script, copy `chrome.css` into your profile:
-
-```
-<profile>/chrome/zen-themes/not-shadow-content/chrome.css
-```
-
-You can find your profile folder in Zen under `about:support` → Profile Folder.
-Locally installed mods can be enabled from Settings → Mods.
+- **Web content**: The variable is set to `none` at the content root, so the page sits flush against the window with its rounded corners intact
+- **Rest of the window**: The bookmarks sidebar, the toolbar and the download animations sit outside the content area and are left alone
 
 ## Uninstall
 
-```bash
-./install.sh --remove
-```
-
-Toggling the mod off in Settings → Mods is enough if you only want to disable it.
-To remove it completely, delete the `not-shadow-content` folder and the matching
-entry in `zen-themes.json`.
+Delete the `not-shadow-content` folder and its entry in `zen-themes.json`, then restart Zen.
 
 ## Compatibility
 
-Tested on Zen Browser 1.22.3b (build 126.9.22). The mod is a single CSS file:
-no JavaScript, no network requests, and no permissions required.
+Tested on Zen Browser 1.22.3b (build 126.9.22). A single CSS file: no JavaScript, no network requests, no permissions.
 
 ## License
 
