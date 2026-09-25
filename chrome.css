@@ -1,0 +1,8 @@
+/* Not Shadow Content - Zen Browser Mod */
+/* Removes the drop shadow cast by the web content panel. */
+
+:root:not([inDOMFullscreen="true"]):not([popup-window"]) #tabbrowser-tabbox
+  #tabbrowser-tabpanels
+  .browserSidebarContainer:not(.zen-glance-overlay) {
+  box-shadow: none !important;
+}
