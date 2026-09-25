@@ -8,8 +8,8 @@
   --zen-big-shadow: none;
 }
 
-/* Glance and split view live inside the content area but are not web content.
- * They get the value Zen defines at :root back, so they keep their shadow.
+/* Surfaces inside the content area that are not web content get the value Zen
+ * defines at :root back, so they keep their shadow.
  * Value taken from Zen's reset: rgba(0, 0, 0, 0.24) 0px 3px 8px */
 #tabbrowser-tabpanels .browserSidebarContainer.zen-glance-background,
 #tabbrowser-tabpanels .browserSidebarContainer.zen-glance-overlay,

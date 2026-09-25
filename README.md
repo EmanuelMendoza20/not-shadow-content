@@ -9,19 +9,13 @@ Zen renders the active page inside a rounded container that carries a
 `box-shadow`, which separates the page from the window chrome. This mod clears
 that shadow on the web content only.
 
-Everything else keeps the shadow it came with:
-
-- Glance
-- Split view
-- The bookmarks sidebar
-- The toolbar and its panels
-- Download animations
+The rest of the window keeps its shadows: the bookmarks sidebar, the toolbar and
+its panels, and the download animations all live outside the content area.
 
 Zen defines a single `--zen-big-shadow` variable at `:root` and the content
 containers read it when painting their own shadow. This mod sets it to `none` on
-the content root, then hands the original value back to Glance and split view.
-The bookmarks sidebar, the toolbar and the download animations sit outside the
-content area, so they are never affected.
+the content root and restores the original value for the surfaces inside that
+area that are not web content.
 
 ## Install
 
