@@ -1,5 +1,7 @@
 # Not Shadow Content
 
+![Preview](image.png)
+
 Removes the drop shadow that [Zen Browser](https://zen-browser.app) casts on the
 web content panel, leaving the rounded corners intact.
 
