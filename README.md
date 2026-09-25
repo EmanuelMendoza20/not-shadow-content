@@ -17,10 +17,11 @@ Everything else keeps the shadow it came with:
 - The toolbar and its panels
 - Download animations
 
-The mod sets `box-shadow: none` directly on the content containers rather than
-overriding Zen's `--zen-big-shadow` variable. Because `box-shadow` is not an
-inherited property, nothing leaks into the rest of the interface, and no value
-from Zen's internals has to be hardcoded.
+Zen defines a single `--zen-big-shadow` variable at `:root` and the content
+containers read it when painting their own shadow. This mod sets it to `none` on
+the content root, then hands the original value back to Glance and split view.
+The bookmarks sidebar, the toolbar and the download animations sit outside the
+content area, so they are never affected.
 
 ## Install
 
