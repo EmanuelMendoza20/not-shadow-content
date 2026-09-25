@@ -68,4 +68,3 @@ no JavaScript, no network requests, and no permissions required.
 ## License
 
 MIT. See [LICENSE](LICENSE).
-# not-shadow-content
